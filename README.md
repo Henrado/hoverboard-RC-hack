@@ -8,7 +8,7 @@ Dette reoet implementerer Field Oriented Control (FOC) for vanlige hoverboards. 
   - **Mulighet for å kontrollere motorene over seriell komunikaskjon.**
 
 
-Table of Contents
+Innholdsfortegnelse 
 =======================
 
 * [Planen fremover](#hardware)
@@ -20,14 +20,11 @@ Table of Contents
 * [Projects and Links](#projects-and-links)
 * [Contributions](#contributions)
 
-#### For the hoverboard sideboard firmware, see the following repositories:
- - [hoverboard-sideboard-hack-GD](https://github.com/EmanuelFeru/hoverboard-sideboard-hack-GD)
- - [hoverboard-sideboard-hack-STM](https://github.com/EmanuelFeru/hoverboard-sideboard-hack-STM)
-
-#### For the FOC controller design, see the following repository:
+#### For hvordan FOC kontrolleren fungerer sjekk ut EmanuelFeru sin forklaring i repoet:
  - [bldc-motor-control-FOC](https://github.com/EmanuelFeru/bldc-motor-control-FOC)
 
 #### Videos:
+Dette er bare noe av det man kan bruke den til:
 <table>
   <tr>
     <td><a href="https://youtu.be/IgHCcj0NgWQ" title="Hovercar" rel="noopener"><img src="/docs/pictures/videos_preview/hovercar_intro.png"></a></td>
@@ -41,9 +38,18 @@ Table of Contents
   </tr>
 </table>
 
+Slik har jeg montert min robot:
+**BILDER**
+
 ---
 ## Planen fremover
+ 1. Gå over til "tank" mode slik at leg slipper å bruke hoverbordet sin mixer og jeg kan gi helt konkret fart på hvert hjul
+ -- [implement Emanuels suggestion for tank mode](https://github.com/labrats-x7/hoverboard-firmware-hack-FOC/commit/eea5af8deb34350907c21a9ecd53411c79b00102)
+ 2. Imoplementere ROS til å gjøre det samme som nå
+ 3. Få ROS til å kontrollere roboten enten inne med lidar eller ute med GPS
 
+Stepp 2 og videre blir inspirasjon fra: 
+[Converting a hoverboard into a self-driving mobile robot with ROS](https://medium.com/@alxm/converting-a-hoverboard-into-a-self-driving-mobile-robot-with-ros-d886c867e8a9)
 
 ---
 ## Hardware
@@ -67,6 +73,8 @@ In this firmware 3 control types are available:
   - **VOLTAGE MODE**: in this mode the controller applies a constant Voltage to the motors. Recommended for robotics applications or applications where a fast motor response is required.
   - **SPEED MODE**: in this mode a closed-loop controller realizes the input speed target by rejecting any of the disturbance (resistive load) applied to the motor. Recommended for robotics applications or constant speed applications.
   - **TORQUE MODE**: in this mode the input torque target is realized. This mode enables motor "freewheeling" when the torque target is `0`. Recommended for most applications with a sitting human driver.
+
+**Jeg har valgt å bruke FOC i VOLTAGE MODE for nøyaktighet**
 
 #### Comparison between different control methods
 
@@ -105,32 +113,12 @@ In all FOC control modes, the controller features maximum motor speed and maximu
 ## Flashing
 
 Right to the STM32, there is a debugging header with GND, 3V3, SWDIO and SWCLK. Connect GND, SWDIO and SWCLK to your SWD programmer, like the ST-Link found on many STM devboards.
-
 If you have never flashed your sideboard before, the MCU is probably locked. To unlock the flash, check-out the wiki page [How to Unlock MCU flash](https://github.com/EmanuelFeru/hoverboard-firmware-hack-FOC/wiki/How-to-Unlock-MCU-flash).
-
 Do not power the mainboard from the 3.3V of your programmer! This has already killed multiple mainboards.
-
 Make sure you hold the powerbutton or connect a jumper to the power button pins while flashing the firmware, as the STM might release the power latch and switches itself off during flashing. Battery > 36V have to be connected while flashing.
 
-To build and flash choose one of the following methods:
-
-Flere forskjellige måter å velge mellom men jeg valgte å bruke:
+Det flere forskjellige måter å kompilere repet men jeg valgte å bruke:
 **[RoboDurden's](https://github.com/RoboDurden) online compiler:[https://pionierland.de/hoverhack/](https://pionierland.de/hoverhack/)**
-
----
-## Troubleshooting
-First, check that power is connected and voltage is >36V while flashing.
-If the board draws more than 100mA in idle, it's probably broken.
-
-If the motors do something, but don't rotate smooth and quietly, try to use an alternative phase mapping. Usually, color-correct mapping (blue to blue, green to green, yellow to yellow) works fine. However, some hoverboards have a different layout then others, and this might be the reason your motor isn't spinning.
-
-Nunchuk not working: Use the right one of the 2 types of nunchuks. Use i2c pullups.
-
-Nunchuk or PPM working bad: The i2c bus and PPM signal are very sensitive to emv distortions of the motor controller. They get stronger the faster you are. Keep cables short, use shielded cable, use ferrits, stabilize voltage in nunchuk or reviever, add i2c pullups. To many errors leads to very high accelerations which triggers the protection board within the battery to shut everything down.
-
-Recommendation: Nunchuk Breakout Board https://github.com/Jan--Henrik/hoverboard-breakout
-
-Most robust way for input is to use the ADC and potis. It works well even on 1m unshielded cable. Solder ~100k Ohm resistors between ADC-inputs and gnd directly on the mainboard. Use potis as pullups to 3.3V.
 
 
 ---
@@ -138,7 +126,7 @@ Most robust way for input is to use the ADC and potis. It works well even on 1m 
 The errors reported by the board are in the form of audible beeps:
 - **1 beep  (low pitch)**: Motor error (see [possible causes](https://github.com/EmanuelFeru/bldc-motor-control-FOC#diagnostics))
 - **2 beeps (low pitch)**: ADC timeout
-- **3 beeps (low pitch)**: Serial communication timeout
+- **3 beeps (low pitch)**: Serial communication timeout <-- Skjer ofte/arduinoen mister kontakten med hoverbordet
 - **4 beeps (low pitch)**: General timeout (PPM, PWM, Nunchuk)
 - **5 beeps (low pitch)**: Mainboard temperature warning
 - **1 beep slow (medium pitch)**: Low battery voltage < 36V
