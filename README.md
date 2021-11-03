@@ -1,15 +1,17 @@
 # Hoverboard-RC-hack
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This repository implements Field Oriented Control (FOC) for stock hoverboards. Compared to the commutation method, this new FOC control method offers superior performance featuring:
- - reduced noise and vibrations 	
- - smooth torque output and improved motor efficiency. Thus, lower energy consumption
- - field weakening to increase maximum speed range
+Dette reoet implementerer Field Oriented Control (FOC) for vanlige hoverboards. Sammenlignet med kommuteringsmetoden (som de kommer med) tilbyr denne FOC-kontrollmetoden overlegen ytelse med:
+  - redusert støy og vibrasjoner
+  - jevnt dreiemoment og forbedret motoreffektivitet. Dermed lavere energiforbruk
+  - feltsvekkelse for å øke maksimalt hastighetsområde
+  - **Mulighet for å kontrollere motorene over seriell komunikaskjon.**
 
 
 Table of Contents
 =======================
 
+* [Planen fremover](#hardware)
 * [Hardware](#hardware)
 * [FOC Firmware](#foc-firmware)
 * [Flashing](#flashing)
@@ -38,6 +40,9 @@ Table of Contents
     <td><a href="https://youtu.be/tVj_lpsRirA" title="Reliable Serial Communication" rel="noopener"><img src="/docs/pictures/videos_preview/serial_com.png"></a></td>
   </tr>
 </table>
+
+---
+## Planen fremover
 
 
 ---
