@@ -8,7 +8,7 @@ Dette reoet implementerer Field Oriented Control (FOC) for vanlige hoverboards. 
   - **Mulighet for å kontrollere motorene over seriell komunikaskjon.**
 
 
-Innholdsfortegnelse 
+Innholdsfortegnelse
 =======================
 
 * [Planen fremover](#hardware)
@@ -48,7 +48,7 @@ Slik har jeg montert min robot:
  2. Imoplementere ROS til å gjøre det samme som nå
  3. Få ROS til å kontrollere roboten enten inne med lidar eller ute med GPS
 
-Stepp 2 og videre blir inspirasjon fra: 
+Stepp 2 og videre blir inspirasjon fra:
 [Converting a hoverboard into a self-driving mobile robot with ROS](https://medium.com/@alxm/converting-a-hoverboard-into-a-self-driving-mobile-robot-with-ros-d886c867e8a9)
 
 ---
@@ -120,6 +120,9 @@ Make sure you hold the powerbutton or connect a jumper to the power button pins 
 Det flere forskjellige måter å kompilere repet men jeg valgte å bruke:
 **[RoboDurden's](https://github.com/RoboDurden) online compiler:[https://pionierland.de/hoverhack/](https://pionierland.de/hoverhack/)**
 
+Videre fulgte jeg en guide av skaperen Niklas Fauth som forklarer hvordan man skal gjøre det:
+[http://bauhausinteraction.org/opl/how-to-control-a-hoverboard-with-an-arduino/](http://bauhausinteraction.org/opl/how-to-control-a-hoverboard-with-an-arduino/)
+
 
 ---
 ## Diagnostics
@@ -146,23 +149,11 @@ For a more detailed troubleshooting connect an [FTDI Serial adapter](https://s.c
 - **Hoverboard hack from BiPropellant:** [https://github.com/bipropellant](https://github.com/bipropellant)
 - **Hoverboard breakout boards:** [https://github.com/Jan--Henrik/hoverboard-breakout](https://github.com/Jan--Henrik/hoverboard-breakout)
 
-<a/>
-
-- **Bobbycar** [https://github.com/larsmm/hoverboard-firmware-hack-FOC-bbcar](https://github.com/larsmm/hoverboard-firmware-hack-FOC-bbcar)
-- **Wheel chair:** [https://github.com/Lahorde/steer_speed_ctrl](https://github.com/Lahorde/steer_speed_ctrl)
-- **TranspOtterNG:** [https://github.com/Jan--Henrik/transpOtterNG](https://github.com/Jan--Henrik/transpOtterNG)
-- **ST Community:** [Custom FOC motor control](https://community.st.com/s/question/0D50X0000B28qTDSQY/custom-foc-control-current-measurement-dma-timer-interrupt-needs-review)
-
-<a/>
-
-- **Telegram Community:** If you are an enthusiast join our [Hooover Telegram Group](https://t.me/joinchat/BHWO_RKu2LT5ZxEkvUB8uw)
 
 
 ---
 ## Contributions
 
 Every contribution to this repository is highly appreciated! Feel free to create pull requests to improve this firmware as ultimately you are going to help everyone.
-
-If you want to donate to keep this firmware updated, please use the link below:
 
 ---
