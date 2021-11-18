@@ -11,7 +11,7 @@ Dette reoet implementerer Field Oriented Control (FOC) for vanlige hoverboards. 
 Innholdsfortegnelse
 =======================
 
-* [Planen fremover](#hardware)
+* [Planen fremover](#Planen fremover)
 * [Hardware](#hardware)
 * [FOC Firmware](#foc-firmware)
 * [Flashing](#flashing)
@@ -23,7 +23,7 @@ Innholdsfortegnelse
 #### For hvordan FOC kontrolleren fungerer sjekk ut EmanuelFeru sin forklaring i repoet:
  - [bldc-motor-control-FOC](https://github.com/EmanuelFeru/bldc-motor-control-FOC)
 
-#### Videos:
+#### Videoer og bilder:
 Dette er bare noe av det man kan bruke den til:
 <table>
   <tr>
@@ -38,7 +38,15 @@ Dette er bare noe av det man kan bruke den til:
   </tr>
 </table>
 
-Slik har jeg montert min robot:
+### Slik har jeg implement min robot:
+<img src="/docs/min_implementasjon/Hoved_v1.jpg">
+<img src="/docs/min_implementasjon/forklaring_v1.jpg">
+<br>
+<br>
+<video width="1280" height="720" controls>
+  <source src="/docs/min_implementasjon/TestkjøringAvHover.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 **BILDER**
 
 ---
