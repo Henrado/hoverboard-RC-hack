@@ -11,15 +11,16 @@ dataSpeedStear calcSpeedStear(int speed, int stear, float tol){
   return {fart, stear};
 }
 
-dataLeftRight calcLeftRight(int x, int y, int maxLimit, float tol, float scale){
-  float fart = sqrt(pow(x,2)+pow(y,2));
-  if (fart < tol){ //For å styre fremover og bakover med en hastighet
-      x = 0;
-      y = 0;
+dataLeftRight calcLeftRight(float x, float y, int maxLimit, float tol, float scale){
+  if (abs(x) < tol){
+    x = 0;
   }
-  x= (-1)*x;
-  float v = (maxLimit - abs(x))*(y/maxLimit)+y;
-  float w = (maxLimit - abs(y))*(x/maxLimit)+x;
+  if (abs(y) < tol) {
+    y = 0;
+  }
+  //x= (-1)*x;
+  float v = (maxLimit - abs(x))*(y/100.0)+y;
+  float w = (maxLimit - abs(y))*(x/100.0)+x;
 
   float r = ((v+w)/2)*scale;
   float l = ((v-w)/2)*scale;

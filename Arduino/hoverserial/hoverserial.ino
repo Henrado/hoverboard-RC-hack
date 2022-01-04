@@ -77,9 +77,16 @@ void loop(void){
   //Receive();
   if (iTimeSend > timeNow) return;
   else iTimeSend = timeNow + TIME_SEND;
-
+ 
   // Regner ut left og right styrke til hjulene 
-  dataLeftRight regning = calcLeftRight(x, y, maxInt, toleranse, 3);
+  dataLeftRight regning = calcLeftRight(x, y, maxInt, 3, 3);
+  Serial.print(x);
+  Serial.print(" ");
+  Serial.print(y);
+  Serial.print(" ");
+  Serial.print(regning.left);
+  Serial.print(" ");
+  Serial.println(regning.right);
   Send(regning.left, regning.right);
 }
 // ########################## END ##########################
