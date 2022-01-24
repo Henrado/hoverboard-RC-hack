@@ -51,7 +51,7 @@ Your browser does not support the video tag.
 
 ---
 ## Planen fremover
- 1. Gå over til "tank" mode slik at leg slipper å bruke hoverbordet sin mixer og jeg kan gi helt konkret fart på hvert hjul
+ 1. (DONE) Gå over til "tank" mode slik at leg slipper å bruke hoverbordet sin mixer og jeg kan gi helt konkret fart på hvert hjul
  -- [implement Emanuels suggestion for tank mode](https://github.com/labrats-x7/hoverboard-firmware-hack-FOC/commit/eea5af8deb34350907c21a9ecd53411c79b00102)
  2. Imoplementere ROS til å gjøre det samme som nå
  3. Få ROS til å kontrollere roboten enten inne med lidar eller ute med GPS
