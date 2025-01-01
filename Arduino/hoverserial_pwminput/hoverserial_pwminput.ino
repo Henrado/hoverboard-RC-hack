@@ -69,8 +69,8 @@ int iTest = 0;
 
 void loop(void){
   // Henter joystick posisjoner 
-  int y = readChannel(1, -maxInt, maxInt, 0);
-  int x = readChannel(0, -maxInt, maxInt, 0);
+  int y = readChannel(CH1, -maxInt, maxInt, 0);
+  int x = readChannel(CH2, -maxInt, maxInt, 0);
 
   // For å regne ut når man skal sende kommandoene til hoverbordet 
   unsigned long timeNow = millis();

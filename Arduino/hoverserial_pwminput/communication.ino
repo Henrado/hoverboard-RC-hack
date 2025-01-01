@@ -98,7 +98,8 @@ void Receive()
 
 int readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue){
   //uint16_t ch = ibusRc.readChannel(channelInput);
-  uint16_t ch = pulseIn(channelInput, HIGH, 30000);
-  if (ch < 100) return defaultValue;
+  int16_t ch = pulseIn(channelInput, HIGH, 30000);
+  int16_t diff = 1500;
+  if (abs(ch-diff) < 100) return defaultValue;  
   return map(ch, 1000, 2000, minLimit, maxLimit);
 }
